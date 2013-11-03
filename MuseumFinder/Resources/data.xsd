@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="addresses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="address">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string" nillable="false" />
+              <xs:element name="longitude" type="xs:decimal" nillable="false" />
+              <xs:element name="latitude" type="xs:decimal" nillable="false" />
+              <xs:element name="street" type="xs:string" nillable="true" />
+              <xs:element name="houseNumber" type="xs:string" nillable="true" />
+              <xs:element name="postalCode" type="xs:string" nillable="true" />
+              <xs:element name="city" type="xs:string" nillable="true" />
+              <xs:element name="website" type="xs:string" nillable="true" />
+              <xs:element name="phoneNumber" type="xs:string" nillable="true" />
+              <xs:element name="emailAddress" type="xs:string" nillable="true" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
