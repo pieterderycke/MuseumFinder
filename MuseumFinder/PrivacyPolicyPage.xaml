@@ -22,13 +22,13 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MUSEUM FINDER" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="privacy policy" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.PrivacyPolicyPageTitle, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock Style="{StaticResource PhoneTextNormalStyle}" TextWrapping="Wrap">"Museum Finder" is taking your privacy very seriously. It only uses your current location to locate nearby museums. Your location is not used for other purposes and never shared with 3rd parties. Your location is only determined when you explicty ask to locate youself in the app or when you ask to search for nearby museums.</TextBlock>
+            <TextBlock Style="{StaticResource PhoneTextNormalStyle}" TextWrapping="Wrap" Text="{Binding Path=LocalizedResources.PrivacyPolicyMessage, Source={StaticResource LocalizedStrings}}"/>
         </Grid>
     </Grid>
 
