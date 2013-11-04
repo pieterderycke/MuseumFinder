@@ -56,6 +56,13 @@ namespace MuseumFinder
             CenterBrussels();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            ((MainViewModel)DataContext).RefreshSettings();
+        }
+
         private void CenterBrussels()
         {
             // Make my current location the center of the Map.

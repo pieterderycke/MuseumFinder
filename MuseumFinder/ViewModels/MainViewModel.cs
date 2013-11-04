@@ -11,12 +11,15 @@ using GalaSoft.MvvmLight.Messaging;
 using MuseumFinder.Domain;
 using MuseumFinder.Messages;
 using Windows.Devices.Geolocation;
+using System.IO.IsolatedStorage;
 
 namespace MuseumFinder.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
         private readonly IAddressRepository addressRepository;
+
+        private bool useLocationService;
 
         public MainViewModel()
         {
@@ -39,49 +42,80 @@ namespace MuseumFinder.ViewModels
         public ICommand Nearest { get; private set; }
         public ICommand Directions { get; private set; }
 
+        public void RefreshSettings()
+        {
+            IsolatedStorageSettings settings = IsolatedStorageSettings.ApplicationSettings;
+
+            if (settings.Contains(App.UseLocationServiceKey))
+                this.useLocationService = (bool)settings[App.UseLocationServiceKey];
+            else
+                this.useLocationService = true;
+        }
+
         private async void SendMyLocationMessage()
         {
-            GeoCoordinate coordinate = await GetCurrentPosition();
-
-            if (coordinate != null)
+            if (!useLocationService)
             {
-                Messenger.Default.Send(new ShowPositionMessage() {Coordinate = coordinate});
+                SendErrorMessage("Could not locate you, please enable the use of the location service in the settings page.");
             }
             else
             {
-                SendErrorMessage("Could not retrieve your current location, please ensure that the location service is enabled.");
+                GeoCoordinate coordinate = await GetCurrentPosition();
+
+                if (coordinate != null)
+                {
+                    Messenger.Default.Send(new ShowPositionMessage() { Coordinate = coordinate });
+                }
+                else
+                {
+                    SendErrorMessage("Could not retrieve your current location, please ensure that the location service is enabled.");
+                }
             }
         }
 
         private async void SendNearestLocationMessage()
         {
-            GeoCoordinate coordinate = await GetCurrentPosition();
-
-            if (coordinate != null)
+            if (!useLocationService)
             {
-                Address nearestAddress = addressRepository.GetNearestAddress(coordinate);
-
-                Messenger.Default.Send(new ShowPositionMessage() {Coordinate = nearestAddress.Coordinate});
+                SendErrorMessage("Could not locate you, please enable the use of the location service in the settings page.");
             }
             else
             {
-                SendErrorMessage("Could not retrieve your current location, please ensure that the location service is enabled.");
+                GeoCoordinate coordinate = await GetCurrentPosition();
+
+                if (coordinate != null)
+                {
+                    Address nearestAddress = addressRepository.GetNearestAddress(coordinate);
+
+                    Messenger.Default.Send(new ShowPositionMessage() { Coordinate = nearestAddress.Coordinate });
+                }
+                else
+                {
+                    SendErrorMessage("Could not retrieve your current location, please ensure that the location service is enabled.");
+                }
             }
         }
 
         private async void SendNearestDirectionsMessage()
         {
-            GeoCoordinate coordinate = await GetCurrentPosition();
-
-            if (coordinate != null)
+            if (!useLocationService)
             {
-                Address nearestAddress = addressRepository.GetNearestAddress(coordinate);
-
-                Messenger.Default.Send(new ShowDirectionsMessage() { Name = nearestAddress.Name, Coordinate = nearestAddress.Coordinate });
+                SendErrorMessage("Could not locate you, please enable the use of the location service in the settings page.");
             }
             else
             {
-                SendErrorMessage("Could not retrieve your current location, please ensure that the location service is enabled.");
+                GeoCoordinate coordinate = await GetCurrentPosition();
+
+                if (coordinate != null)
+                {
+                    Address nearestAddress = addressRepository.GetNearestAddress(coordinate);
+
+                    Messenger.Default.Send(new ShowDirectionsMessage() { Name = nearestAddress.Name, Coordinate = nearestAddress.Coordinate });
+                }
+                else
+                {
+                    SendErrorMessage("Could not retrieve your current location, please ensure that the location service is enabled.");
+                }
             }
         }
 
