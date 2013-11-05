@@ -19,13 +19,16 @@ namespace MuseumFinder.ViewModels
     public class MainViewModel : ViewModelBase
     {
         private readonly IAddressRepository addressRepository;
+        private readonly IProgressNotificationService progressNotificationService;
 
         private bool useLocationService;
 
-        public MainViewModel()
+        public MainViewModel(IAddressRepository addressRepository, IProgressNotificationService progressNotificationService)
         {
-            addressRepository = new AddressRepository();
+            this.addressRepository = addressRepository;
             Addresses = addressRepository.GetAddresses().Select(a => new AddressViewModel(a)).ToList();
+
+            this.progressNotificationService = progressNotificationService;
 
             LocateMe = new RelayCommand(SendMyLocationMessage);
             Nearest = new RelayCommand(SendNearestLocationMessage);
@@ -36,6 +39,13 @@ namespace MuseumFinder.ViewModels
         public GeoCoordinate UserPosition {
             get { return userPosition; }
             private set { userPosition = value; RaisePropertyChanged("UserPosition"); }
+        }
+
+        private bool enableButtons;
+        public bool EnableButtons
+        {
+            get { return enableButtons; }
+            private set { enableButtons = value; RaisePropertyChanged("EnableButtons"); }
         }
 
         public IEnumerable<AddressViewModel> Addresses { get; private set; }
@@ -61,16 +71,26 @@ namespace MuseumFinder.ViewModels
             }
             else
             {
-                GeoCoordinate coordinate = await GetCurrentPosition();
+                EnableButtons = false;
+                progressNotificationService.ShowProgressMessage(AppResources.RetrievingLocationMessage);
 
-                if (coordinate != null)
+                try
                 {
-                    Messenger.Default.Send(new ShowPositionMessage() { Coordinate = coordinate });
+                    GeoCoordinate coordinate = await GetCurrentPosition();
+
+                    if (coordinate != null)
+                    {
+                        Messenger.Default.Send(new ShowPositionMessage() { Coordinate = coordinate });
+                    }
+                    else
+                    {
+                        SendErrorMessage(AppResources.LocationServiceNotEnabledErrorMessage);
+                    }
                 }
-                else
-                {
-                    SendErrorMessage(AppResources.LocationServiceNotEnabledErrorMessage);
-                }
+                catch (Exception) { }
+
+                progressNotificationService.StopProgressNotification();
+                EnableButtons = true;
             }
         }
 
@@ -82,18 +102,28 @@ namespace MuseumFinder.ViewModels
             }
             else
             {
-                GeoCoordinate coordinate = await GetCurrentPosition();
+                EnableButtons = false;
+                progressNotificationService.ShowProgressMessage(AppResources.RetrievingLocationMessage);
 
-                if (coordinate != null)
+                try
                 {
-                    Address nearestAddress = addressRepository.GetNearestAddress(coordinate);
+                    GeoCoordinate coordinate = await GetCurrentPosition();
 
-                    Messenger.Default.Send(new ShowPositionMessage() { Coordinate = nearestAddress.Coordinate });
+                    if (coordinate != null)
+                    {
+                        Address nearestAddress = addressRepository.GetNearestAddress(coordinate);
+
+                        Messenger.Default.Send(new ShowPositionMessage() { Coordinate = nearestAddress.Coordinate });
+                    }
+                    else
+                    {
+                        SendErrorMessage(AppResources.LocationServiceNotEnabledErrorMessage);
+                    }
                 }
-                else
-                {
-                    SendErrorMessage(AppResources.LocationServiceNotEnabledErrorMessage);
-                }
+                catch (Exception) { }
+
+                progressNotificationService.StopProgressNotification();
+                EnableButtons = true;
             }
         }
 
@@ -105,18 +135,28 @@ namespace MuseumFinder.ViewModels
             }
             else
             {
-                GeoCoordinate coordinate = await GetCurrentPosition();
+                EnableButtons = false;
+                progressNotificationService.ShowProgressMessage(AppResources.RetrievingLocationMessage);
 
-                if (coordinate != null)
+                try
                 {
-                    Address nearestAddress = addressRepository.GetNearestAddress(coordinate);
+                    GeoCoordinate coordinate = await GetCurrentPosition();
 
-                    Messenger.Default.Send(new ShowDirectionsMessage() { Name = nearestAddress.Name, Coordinate = nearestAddress.Coordinate });
+                    if (coordinate != null)
+                    {
+                        Address nearestAddress = addressRepository.GetNearestAddress(coordinate);
+
+                        Messenger.Default.Send(new ShowDirectionsMessage() { Name = nearestAddress.Name, Coordinate = nearestAddress.Coordinate });
+                    }
+                    else
+                    {
+                        SendErrorMessage(AppResources.LocationServiceNotEnabledErrorMessage);
+                    }
                 }
-                else
-                {
-                    SendErrorMessage(AppResources.LocationServiceNotEnabledErrorMessage);
-                }
+                catch (Exception) { }
+
+                progressNotificationService.StopProgressNotification();
+                EnableButtons = true;
             }
         }
 

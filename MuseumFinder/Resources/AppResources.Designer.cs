@@ -315,6 +315,15 @@ namespace MuseumFinder.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Retrieving current location....
+        /// </summary>
+        public static string RetrievingLocationMessage {
+            get {
+                return ResourceManager.GetString("RetrievingLocationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string SettingsMenuItemText {

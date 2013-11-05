@@ -17,6 +17,7 @@ using MuseumFinder.Resources;
 using Nokia.Phone.HereLaunchers;
 using Windows.Devices.Geolocation;
 using MuseumFinder.Util;
+using MuseumFinder.Domain;
 
 namespace MuseumFinder
 {
@@ -31,8 +32,9 @@ namespace MuseumFinder
             Messenger.Default.Register<ShowPositionMessage>(this, OnShowPositionMessageReceived);
             Messenger.Default.Register<ShowDetailsMessage>(this, OnShowDetailsMessageReceived);
 
-            MainViewModel viewModel = new MainViewModel();
+            MainViewModel viewModel = new MainViewModel(new AddressRepository(), new ProgressNotificationService());
             this.DataContext = viewModel;
+            viewModel.PropertyChanged += viewModel_PropertyChanged; // Hook in for ApplicationBar changes
 
             // MVVM was to slow with a lot of pushpins :(
             MapLayer layer = new MapLayer();
@@ -103,6 +105,15 @@ namespace MuseumFinder
             ApplicationBarMenuItem aboutMenuItem = new ApplicationBarMenuItem(AppResources.AboutMenuItemText);
             aboutMenuItem.Click += aboutMenuItem_Click;
             ApplicationBar.MenuItems.Add(aboutMenuItem);
+        }
+
+        private void viewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == "EnableButtons")
+            {
+                bool enableButtons = ((MainViewModel)DataContext).EnableButtons;
+                ApplicationBar.Buttons.OfType<ApplicationBarIconButton>().ForEach(b => b.IsEnabled = enableButtons);
+            }
         }
 
         private void addressMap_Loaded(object sender, RoutedEventArgs e)

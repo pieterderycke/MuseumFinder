@@ -99,6 +99,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Domain\IAddressRepository.cs" />
+    <Compile Include="Domain\IProgressNotificationService.cs" />
+    <Compile Include="Domain\ProgressNotificationService.cs" />
     <Compile Include="LicenseKeys.cs" />
     <Compile Include="Messages\CallPhoneNumberMessage.cs" />
     <Compile Include="Messages\OpenWebPageMessage.cs" />
@@ -123,6 +125,7 @@
     <Compile Include="SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Util\EnumerableExtensions.cs" />
     <Compile Include="Util\NavigationServiceExtensions.cs" />
     <Compile Include="Util\NullObjectToVisibiltyConverter.cs" />
     <Compile Include="ViewModels\AddressViewModel.cs" />

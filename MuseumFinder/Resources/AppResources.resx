@@ -214,6 +214,9 @@ This app was made possible thanks to the open data sets of the Flemish governmen
   <data name="PhoneNumberLabelText" xml:space="preserve">
     <value>PhoneNumber</value>
   </data>
+  <data name="RetrievingLocationMessage" xml:space="preserve">
+    <value>Retrieving current location...</value>
+  </data>
   <data name="WebsiteLabelText" xml:space="preserve">
     <value>Website</value>
   </data>
