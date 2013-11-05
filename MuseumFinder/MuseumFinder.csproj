@@ -99,6 +99,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Domain\IAddressRepository.cs" />
+    <Compile Include="LicenseKeys.cs" />
     <Compile Include="Messages\CallPhoneNumberMessage.cs" />
     <Compile Include="Messages\OpenWebPageMessage.cs" />
     <Compile Include="Messages\CreateMailMessage.cs" />

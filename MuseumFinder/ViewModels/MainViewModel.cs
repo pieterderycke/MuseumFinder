@@ -12,6 +12,7 @@ using MuseumFinder.Domain;
 using MuseumFinder.Messages;
 using Windows.Devices.Geolocation;
 using System.IO.IsolatedStorage;
+using MuseumFinder.Resources;
 
 namespace MuseumFinder.ViewModels
 {
@@ -56,7 +57,7 @@ namespace MuseumFinder.ViewModels
         {
             if (!useLocationService)
             {
-                SendErrorMessage("Could not locate you, please enable the use of the location service in the settings page.");
+                SendErrorMessage(AppResources.LocationServiceAppSettingNotEnabledErrorMessage);
             }
             else
             {
@@ -68,7 +69,7 @@ namespace MuseumFinder.ViewModels
                 }
                 else
                 {
-                    SendErrorMessage("Could not retrieve your current location, please ensure that the location service is enabled.");
+                    SendErrorMessage(AppResources.LocationServiceNotEnabledErrorMessage);
                 }
             }
         }
@@ -77,7 +78,7 @@ namespace MuseumFinder.ViewModels
         {
             if (!useLocationService)
             {
-                SendErrorMessage("Could not locate you, please enable the use of the location service in the settings page.");
+                SendErrorMessage(AppResources.LocationServiceAppSettingNotEnabledErrorMessage);
             }
             else
             {
@@ -91,7 +92,7 @@ namespace MuseumFinder.ViewModels
                 }
                 else
                 {
-                    SendErrorMessage("Could not retrieve your current location, please ensure that the location service is enabled.");
+                    SendErrorMessage(AppResources.LocationServiceNotEnabledErrorMessage);
                 }
             }
         }
@@ -100,7 +101,7 @@ namespace MuseumFinder.ViewModels
         {
             if (!useLocationService)
             {
-                SendErrorMessage("Could not locate you, please enable the use of the location service in the settings page.");
+                SendErrorMessage(AppResources.LocationServiceAppSettingNotEnabledErrorMessage);
             }
             else
             {
@@ -114,7 +115,7 @@ namespace MuseumFinder.ViewModels
                 }
                 else
                 {
-                    SendErrorMessage("Could not retrieve your current location, please ensure that the location service is enabled.");
+                    SendErrorMessage(AppResources.LocationServiceNotEnabledErrorMessage);
                 }
             }
         }

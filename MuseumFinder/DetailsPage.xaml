@@ -37,12 +37,12 @@
 
         <ScrollViewer Grid.Row="1" Margin="12,0,12,0">
             <StackPanel x:Name="ContentPanel" >
-                <TextBlock TextWrapping="Wrap" Text="Name" Style="{StaticResource PhoneTextAccentStyle}" Margin="12,0,12,0"/>
+                <TextBlock TextWrapping="Wrap" Text="{Binding Path=LocalizedResources.NameLabelText, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextAccentStyle}" Margin="12,0,12,0"/>
                 <TextBlock TextWrapping="Wrap" Text="{Binding Name}" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,8,12,0"/>
-                <TextBlock TextWrapping="Wrap" Text="Address" Style="{StaticResource PhoneTextAccentStyle}" Margin="12,10,12,0" Visibility="{Binding AddressLine1, Converter={StaticResource nullObjectToVisibiltyConverter}}"/>
+                <TextBlock TextWrapping="Wrap" Text="{Binding Path=LocalizedResources.AddressLabelText, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextAccentStyle}" Margin="12,10,12,0" Visibility="{Binding AddressLine1, Converter={StaticResource nullObjectToVisibiltyConverter}}"/>
                 <TextBlock TextWrapping="Wrap" Text="{Binding AddressLine1}" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,8,12,0" Visibility="{Binding AddressLine1, Converter={StaticResource nullObjectToVisibiltyConverter}}"/>
                 <TextBlock TextWrapping="Wrap" Text="{Binding AddressLine2}" Style="{StaticResource PhoneTextNormalStyle}" Visibility="{Binding AddressLine2, Converter={StaticResource nullObjectToVisibiltyConverter}}"/>
-                <TextBlock TextWrapping="Wrap" Text="Website" Style="{StaticResource PhoneTextAccentStyle}" Margin="12,10,12,0" Visibility="{Binding Website, Converter={StaticResource nullObjectToVisibiltyConverter}}"/>
+                <TextBlock TextWrapping="Wrap" Text="{Binding Path=LocalizedResources.WebsiteLabelText, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextAccentStyle}" Margin="12,10,12,0" Visibility="{Binding Website, Converter={StaticResource nullObjectToVisibiltyConverter}}"/>
                 <TextBlock TextWrapping="Wrap" Text="{Binding Website}" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,8,12,0" Visibility="{Binding Website, Converter={StaticResource nullObjectToVisibiltyConverter}}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Tap">
@@ -50,7 +50,7 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </TextBlock>
-                <TextBlock TextWrapping="Wrap" Text="Phone Number" Style="{StaticResource PhoneTextAccentStyle}" Margin="12,10,12,0" Visibility="{Binding PhoneNumber, Converter={StaticResource nullObjectToVisibiltyConverter}}"/>
+                <TextBlock TextWrapping="Wrap" Text="{Binding Path=LocalizedResources.PhoneNumberLabelText, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextAccentStyle}" Margin="12,10,12,0" Visibility="{Binding PhoneNumber, Converter={StaticResource nullObjectToVisibiltyConverter}}"/>
                 <TextBlock TextWrapping="Wrap" Text="{Binding PhoneNumber}" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,8,12,0" Visibility="{Binding PhoneNumber, Converter={StaticResource nullObjectToVisibiltyConverter}}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Tap">
@@ -58,7 +58,7 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </TextBlock>
-                <TextBlock TextWrapping="Wrap" Text="Email" Style="{StaticResource PhoneTextAccentStyle}" Margin="12,10,12,0" Visibility="{Binding EmailAddress, Converter={StaticResource nullObjectToVisibiltyConverter}}"/>
+                <TextBlock TextWrapping="Wrap" Text="{Binding Path=LocalizedResources.EmailLabelText, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextAccentStyle}" Margin="12,10,12,0" Visibility="{Binding EmailAddress, Converter={StaticResource nullObjectToVisibiltyConverter}}"/>
                 <TextBlock TextWrapping="Wrap" Text="{Binding EmailAddress}" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,8,12,0"  Visibility="{Binding EmailAddress, Converter={StaticResource nullObjectToVisibiltyConverter}}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Tap">
@@ -71,7 +71,7 @@
                         <toolkit:Pushpin GeoCoordinate="{Binding Coordinate}" Content="{Binding Name}"/>
                     </toolkit:MapExtensions.Children>
                 </maps:Map>
-                <Button Margin="0,12,0,0" Content="GetDirections" Command="{Binding GetDirections}"/>
+                <Button Margin="0,12,0,0" Content="{Binding Path=LocalizedResources.GetDirectionsButtonText, Source={StaticResource LocalizedStrings}}" Command="{Binding GetDirections}"/>
             </StackPanel>
         </ScrollViewer>
         <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->

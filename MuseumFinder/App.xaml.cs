@@ -237,15 +237,15 @@ namespace MuseumFinder
         {
             string text = "";
             if (message.Name != null)
-                text = string.Format("The nearest museum found was \"{0}\". ", message.Name);
-            text += "Do you want to continue to HERE Maps to get directions?";
+                text = string.Format(AppResources.NearestMuseumFoundMessage, message.Name);
+            text += AppResources.ContinueToHereMapsMessage;
 
             CustomMessageBox messageBox = new CustomMessageBox()
             {
-                Caption = "Get directions in HERE Maps",
+                Caption = AppResources.GetDirectionsMessage,
                 Message = text,
-                LeftButtonContent = "continue",
-                RightButtonContent = "cancel",
+                LeftButtonContent = AppResources.ContinueButtonLabel,
+                RightButtonContent = AppResources.CancelButtonLabel,
             };
 
             messageBox.Dismissed += (s1, e1) =>
@@ -268,7 +268,7 @@ namespace MuseumFinder
 
         private void OnShowErrorMessageReceived(ShowErrorMessage message)
         {
-            MessageBox.Show(message.Message, "Error", MessageBoxButton.OK);
+            MessageBox.Show(message.Message, AppResources.ErrorTitle, MessageBoxButton.OK);
         }
 
         private void OnCallPhoneNumberMessageReceived(CallPhoneNumberMessage message)

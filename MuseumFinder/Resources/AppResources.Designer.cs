@@ -61,11 +61,85 @@ namespace MuseumFinder.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string AboutMenuItemText {
+            get {
+                return ResourceManager.GetString("AboutMenuItemText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Museum Finder&quot; is an app for WP8 that helps you finding nearby museums in Flanders.
+        ///
+        ///This app was made possible thanks to the open data sets of the Flemish government..
+        /// </summary>
+        public static string AboutMessage {
+            get {
+                return ResourceManager.GetString("AboutMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About this app.
+        /// </summary>
+        public static string AboutThisApp {
+            get {
+                return ResourceManager.GetString("AboutThisApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        public static string AddressLabelText {
+            get {
+                return ResourceManager.GetString("AddressLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MUSEUM FINDER.
         /// </summary>
         public static string ApplicationTitle {
             get {
                 return ResourceManager.GetString("ApplicationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to cancel.
+        /// </summary>
+        public static string CancelButtonLabel {
+            get {
+                return ResourceManager.GetString("CancelButtonLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to close.
+        /// </summary>
+        public static string CloseButtonLabel {
+            get {
+                return ResourceManager.GetString("CloseButtonLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to continue.
+        /// </summary>
+        public static string ContinueButtonLabel {
+            get {
+                return ResourceManager.GetString("ContinueButtonLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to continue to HERE Maps to get directions?.
+        /// </summary>
+        public static string ContinueToHereMapsMessage {
+            get {
+                return ResourceManager.GetString("ContinueToHereMapsMessage", resourceCulture);
             }
         }
         
@@ -79,11 +153,128 @@ namespace MuseumFinder.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string EmailLabelText {
+            get {
+                return ResourceManager.GetString("EmailLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string ErrorTitle {
+            get {
+                return ResourceManager.GetString("ErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to find nearby.
         /// </summary>
         public static string FindNearbyPageTitle {
             get {
                 return ResourceManager.GetString("FindNearbyPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get Directions.
+        /// </summary>
+        public static string GetDirectionsButtonText {
+            get {
+                return ResourceManager.GetString("GetDirectionsButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get Directions.
+        /// </summary>
+        public static string GetDirectionsIconButtonText {
+            get {
+                return ResourceManager.GetString("GetDirectionsIconButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get directions in HERE Maps.
+        /// </summary>
+        public static string GetDirectionsMessage {
+            get {
+                return ResourceManager.GetString("GetDirectionsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locate Me.
+        /// </summary>
+        public static string LocateMeIconButtonText {
+            get {
+                return ResourceManager.GetString("LocateMeIconButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not locate you, please enable the use of the location service in the settings page..
+        /// </summary>
+        public static string LocationServiceAppSettingNotEnabledErrorMessage {
+            get {
+                return ResourceManager.GetString("LocationServiceAppSettingNotEnabledErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not retrieve your current location, please ensure that the location service is enabled..
+        /// </summary>
+        public static string LocationServiceNotEnabledErrorMessage {
+            get {
+                return ResourceManager.GetString("LocationServiceNotEnabledErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string NameLabelText {
+            get {
+                return ResourceManager.GetString("NameLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nearest.
+        /// </summary>
+        public static string NearestIconButtonText {
+            get {
+                return ResourceManager.GetString("NearestIconButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The nearest museum found was &quot;{0}&quot;. .
+        /// </summary>
+        public static string NearestMuseumFoundMessage {
+            get {
+                return ResourceManager.GetString("NearestMuseumFoundMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PhoneNumber.
+        /// </summary>
+        public static string PhoneNumberLabelText {
+            get {
+                return ResourceManager.GetString("PhoneNumberLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Privacy Policy.
+        /// </summary>
+        public static string PrivacyPolicyMenuItemText {
+            get {
+                return ResourceManager.GetString("PrivacyPolicyMenuItemText", resourceCulture);
             }
         }
         
@@ -124,6 +315,15 @@ namespace MuseumFinder.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string SettingsMenuItemText {
+            get {
+                return ResourceManager.GetString("SettingsMenuItemText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to settings.
         /// </summary>
         public static string SettingsPageTitle {
@@ -138,6 +338,15 @@ namespace MuseumFinder.Resources {
         public static string UseLocationService {
             get {
                 return ResourceManager.GetString("UseLocationService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Website.
+        /// </summary>
+        public static string WebsiteLabelText {
+            get {
+                return ResourceManager.GetString("WebsiteLabelText", resourceCulture);
             }
         }
     }

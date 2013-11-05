@@ -128,11 +128,34 @@
   <data name="ApplicationTitle" xml:space="preserve">
     <value>MUSEUM FINDER</value>
   </data>
+  <data name="AboutMenuItemText" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AboutMessage" xml:space="preserve">
+    <value>"Museum Finder" is an app for WP8 that helps you finding nearby museums in Flanders.
+
+This app was made possible thanks to the open data sets of the Flemish government.</value>
+  </data>
+  <data name="AboutThisApp" xml:space="preserve">
+    <value>About this app</value>
+  </data>
+  <data name="CloseButtonLabel" xml:space="preserve">
+    <value>close</value>
+  </data>
   <data name="DetailsPageTitle" xml:space="preserve">
     <value>details</value>
   </data>
   <data name="FindNearbyPageTitle" xml:space="preserve">
     <value>find nearby</value>
+  </data>
+  <data name="LocationServiceAppSettingNotEnabledErrorMessage" xml:space="preserve">
+    <value>Could not locate you, please enable the use of the location service in the settings page.</value>
+  </data>
+  <data name="LocationServiceNotEnabledErrorMessage" xml:space="preserve">
+    <value>Could not retrieve your current location, please ensure that the location service is enabled.</value>
+  </data>
+  <data name="PrivacyPolicyMenuItemText" xml:space="preserve">
+    <value>Privacy Policy</value>
   </data>
   <data name="PrivacyPolicyMessage" xml:space="preserve">
     <value>"Museum Finder" is taking your privacy very seriously. It only uses your current location to locate nearby museums. Your location is not used for other purposes and never shared with 3rd parties. Your location is only determined when you explicty ask to locate youself in the app or when you ask to search for nearby museums.</value>
@@ -140,10 +163,58 @@
   <data name="PrivacyPolicyPageTitle" xml:space="preserve">
     <value>privacy policy</value>
   </data>
+  <data name="SettingsMenuItemText" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="SettingsPageTitle" xml:space="preserve">
     <value>settings</value>
   </data>
   <data name="UseLocationService" xml:space="preserve">
     <value>Use Location Service</value>
+  </data>
+  <data name="AddressLabelText" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="CancelButtonLabel" xml:space="preserve">
+    <value>cancel</value>
+  </data>
+  <data name="ContinueButtonLabel" xml:space="preserve">
+    <value>continue</value>
+  </data>
+  <data name="ContinueToHereMapsMessage" xml:space="preserve">
+    <value>Do you want to continue to HERE Maps to get directions?</value>
+  </data>
+  <data name="EmailLabelText" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="GetDirectionsButtonText" xml:space="preserve">
+    <value>Get Directions</value>
+  </data>
+  <data name="GetDirectionsIconButtonText" xml:space="preserve">
+    <value>Get Directions</value>
+  </data>
+  <data name="GetDirectionsMessage" xml:space="preserve">
+    <value>Get directions in HERE Maps</value>
+  </data>
+  <data name="LocateMeIconButtonText" xml:space="preserve">
+    <value>Locate Me</value>
+  </data>
+  <data name="NameLabelText" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NearestIconButtonText" xml:space="preserve">
+    <value>Nearest</value>
+  </data>
+  <data name="NearestMuseumFoundMessage" xml:space="preserve">
+    <value>The nearest museum found was "{0}". </value>
+  </data>
+  <data name="PhoneNumberLabelText" xml:space="preserve">
+    <value>PhoneNumber</value>
+  </data>
+  <data name="WebsiteLabelText" xml:space="preserve">
+    <value>Website</value>
   </data>
 </root>

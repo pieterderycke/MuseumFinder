@@ -77,34 +77,38 @@ namespace MuseumFinder
             ApplicationBar = new ApplicationBar();
 
             ApplicationBarIconButton locateMeButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.locateme.png", UriKind.Relative));
-            locateMeButton.Text = "Locate Me";
+            locateMeButton.Text = AppResources.LocateMeIconButtonText;
             locateMeButton.Click += locateMeButton_Click;
             ApplicationBar.Buttons.Add(locateMeButton);
 
             ApplicationBarIconButton nearestButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.nearby.png", UriKind.Relative));
-            nearestButton.Text = "Nearest";
+            nearestButton.Text = AppResources.NearestIconButtonText;
             nearestButton.Click += nearestButton_Click;
             ApplicationBar.Buttons.Add(nearestButton);
 
             ApplicationBarIconButton directionsButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.directions.png", UriKind.Relative));
-            directionsButton.Text = "GetDirections";
+            directionsButton.Text = AppResources.GetDirectionsIconButtonText;
             directionsButton.Click += directionsButton_Click;
             ApplicationBar.Buttons.Add(directionsButton);
 
             // Create a new menu item with the localized string from AppResources.
-            ApplicationBarMenuItem privacyPolicyMenuItem = new ApplicationBarMenuItem("Privacy Policy");
+            ApplicationBarMenuItem settingsMenuItem = new ApplicationBarMenuItem(AppResources.SettingsMenuItemText);
+            settingsMenuItem.Click += settingsMenuItem_Click;
+            ApplicationBar.MenuItems.Add(settingsMenuItem);
+
+            ApplicationBarMenuItem privacyPolicyMenuItem = new ApplicationBarMenuItem(AppResources.PrivacyPolicyMenuItemText);
             privacyPolicyMenuItem.Click += privacyPolicyMenuItem_Click;
             ApplicationBar.MenuItems.Add(privacyPolicyMenuItem);
 
-            ApplicationBarMenuItem aboutMenuItem = new ApplicationBarMenuItem("About");
+            ApplicationBarMenuItem aboutMenuItem = new ApplicationBarMenuItem(AppResources.AboutMenuItemText);
             aboutMenuItem.Click += aboutMenuItem_Click;
             ApplicationBar.MenuItems.Add(aboutMenuItem);
         }
 
         private void addressMap_Loaded(object sender, RoutedEventArgs e)
         {
-            Microsoft.Phone.Maps.MapsSettings.ApplicationContext.ApplicationId = "323e03d4-fb8c-4d43-81f4-f73ab51a7318";
-            Microsoft.Phone.Maps.MapsSettings.ApplicationContext.AuthenticationToken = "FffTXwxA7ZBKl2P7GGs_yw";
+            Microsoft.Phone.Maps.MapsSettings.ApplicationContext.ApplicationId = LicenseKeys.ApplicationId;
+            Microsoft.Phone.Maps.MapsSettings.ApplicationContext.AuthenticationToken = LicenseKeys.AuthenticationToken;
         }
 
         private void locateMeButton_Click(object sender, EventArgs e)
@@ -122,21 +126,26 @@ namespace MuseumFinder
             ((MainViewModel)this.DataContext).Directions.Execute(null);
         }
 
-        private void aboutMenuItem_Click(object sender, EventArgs e)
+        private void settingsMenuItem_Click(object sender, EventArgs e)
         {
-            CustomMessageBox messageBox = new CustomMessageBox()
-            {
-                Caption = "About this app",
-                Message = string.Format("\"Museum Finder\" is an app for WP8 that helps you finding nearby museums in Flanders.\n\nThis app was made possible thanks to the open data sets of the Flemish government."),
-                LeftButtonContent = "close",
-            };
-            messageBox.Show();
-            ;
+            NavigationService.Navigate(new Uri("/SettingsPage.xaml", UriKind.Relative));
         }
 
         private void privacyPolicyMenuItem_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/PrivacyPolicyPage.xaml", UriKind.Relative));
+        }
+
+        private void aboutMenuItem_Click(object sender, EventArgs e)
+        {
+            CustomMessageBox messageBox = new CustomMessageBox()
+            {
+                Caption = AppResources.AboutThisApp,
+                Message = string.Format(AppResources.AboutMessage),
+                LeftButtonContent = AppResources.CloseButtonLabel,
+            };
+            messageBox.Show();
+            ;
         }
 
         private void OnShowPositionMessageReceived(ShowPositionMessage message)
