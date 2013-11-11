@@ -15,10 +15,8 @@ namespace MuseumFinder.Util
     /// </summary>
     public class FeedbackHelper
     {
-        private const string LAUNCH_COUNT = "LAUNCH_COUNT";
-        private const string REVIEWED = "REVIEWED";
-        private const int FIRST_COUNT = 5;
-        private const int SECOND_COUNT = 10;
+        private const int FirstCount = 5;
+        private const int SecondCount = 10;
 
         private int _launchCount = 0;
         private bool _reviewed = false;
@@ -63,16 +61,16 @@ namespace MuseumFinder.Util
         {
             try
             {
-                this._launchCount = storageHelper.GetSetting<int>(LAUNCH_COUNT);
-                this._reviewed = storageHelper.GetSetting<bool>(REVIEWED);
+                this._launchCount = storageHelper.GetSetting<int>(App.LaunchCountKey);
+                this._reviewed = storageHelper.GetSetting<bool>(App.ReviewedKey);
 
                 if (!this._reviewed)
                 {
                     this._launchCount++;
 
-                    if (this._launchCount == FIRST_COUNT)
+                    if (this._launchCount == FirstCount)
                         this._state = FeedbackState.FirstReview;
-                    else if (this._launchCount == SECOND_COUNT)
+                    else if (this._launchCount == SecondCount)
                         this._state = FeedbackState.SecondReview;
 
                     this.StoreState();
@@ -91,8 +89,8 @@ namespace MuseumFinder.Util
         {
             try
             {
-                storageHelper.StoreSetting(LAUNCH_COUNT, this._launchCount, true);
-                storageHelper.StoreSetting(REVIEWED, this._reviewed, true);
+                storageHelper.StoreSetting(App.LaunchCountKey, this._launchCount, true);
+                storageHelper.StoreSetting(App.ReviewedKey, this._reviewed, true);
             }
             catch (Exception ex)
             {

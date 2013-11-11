@@ -18,6 +18,8 @@ namespace MuseumFinder
     public partial class App : Application
     {
         public const string UseLocationServiceKey = "useLocationService";
+        public const string LaunchCountKey = "launchCount";
+        public const string ReviewedKey = "reviewed";
 
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
