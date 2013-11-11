@@ -9,6 +9,7 @@
     xmlns:controls="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps" 
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Maps.Toolkit;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:util="clr-namespace:MuseumFinder.Util"
+    xmlns:customControls="clr-namespace:MuseumFinder.Controls"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP8"
     mc:Ignorable="d"
@@ -83,6 +84,9 @@
 
             Before shipping remove this XAML and the image itself.-->
         <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+        
+        <!-- Feedback overlay -->
+        <customControls:FeedbackOverlay Grid.RowSpan="2" EnableAnimation="True" />
     </Grid>
 
 </phone:PhoneApplicationPage>

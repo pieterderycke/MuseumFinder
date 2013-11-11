@@ -11,6 +11,7 @@ using Microsoft.Phone.Tasks;
 using MuseumFinder.Messages;
 using MuseumFinder.Resources;
 using Nokia.Phone.HereLaunchers;
+using MuseumFinder.Util;
 
 namespace MuseumFinder
 {
@@ -74,6 +75,8 @@ namespace MuseumFinder
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            // Call this on launch to initialise the feedback helper
+            FeedbackHelper.Default.Launching();
         }
 
         // Code to execute when the application is activated (brought to foreground)

@@ -171,6 +171,71 @@ namespace MuseumFinder.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [Your feedback here]
+        ///
+        ///
+        ///---------------------------------
+        ///Device Name: {0}
+        ///Device Manufacturer: {1}
+        ///Device Firmware Version: {2}
+        ///Device Hardware Version: {3}
+        ///Application Version: {4}
+        ///---------------------------------.
+        /// </summary>
+        public static string FeedbackBodyText {
+            get {
+                return ResourceManager.GetString("FeedbackBodyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sorry to hear you didn&apos;t want to rate Museum Finder.
+        ///
+        ///Tell us about your experience or suggest how we can make it even better..
+        /// </summary>
+        public static string FeedbackMessage {
+            get {
+                return ResourceManager.GetString("FeedbackMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to no thanks.
+        /// </summary>
+        public static string FeedbackNoButtonText {
+            get {
+                return ResourceManager.GetString("FeedbackNoButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Museum Finder Customer Feedback.
+        /// </summary>
+        public static string FeedbackSubject {
+            get {
+                return ResourceManager.GetString("FeedbackSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can we make it better?.
+        /// </summary>
+        public static string FeedbackTitle {
+            get {
+                return ResourceManager.GetString("FeedbackTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to give feedback.
+        /// </summary>
+        public static string FeedbackYesButtonText {
+            get {
+                return ResourceManager.GetString("FeedbackYesButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to find nearby.
         /// </summary>
         public static string FindNearbyPageTitle {
@@ -293,6 +358,55 @@ namespace MuseumFinder.Resources {
         public static string PrivacyPolicyPageTitle {
             get {
                 return ResourceManager.GetString("PrivacyPolicyPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We&apos;d love you to rate our app 5 stars
+        ///
+        ///Showing us some love on the store helps us to continue to work on the app and make things even better!.
+        /// </summary>
+        public static string RatingMessage1 {
+            get {
+                return ResourceManager.GetString("RatingMessage1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You look to be getting a lot of use out of our application!
+        ///
+        ///Why not give us a 5 star rating to show your appreciation?.
+        /// </summary>
+        public static string RatingMessage2 {
+            get {
+                return ResourceManager.GetString("RatingMessage2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to no thanks.
+        /// </summary>
+        public static string RatingNoButtonText {
+            get {
+                return ResourceManager.GetString("RatingNoButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enjoying Museum Finder?.
+        /// </summary>
+        public static string RatingTitle {
+            get {
+                return ResourceManager.GetString("RatingTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to rate 5 stars.
+        /// </summary>
+        public static string RatingYesButtonText {
+            get {
+                return ResourceManager.GetString("RatingYesButtonText", resourceCulture);
             }
         }
         
