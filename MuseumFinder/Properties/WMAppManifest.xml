@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{66B8B7D1-1F09-4EC2-BBED-2D0A242F431D}" Title="Museum Finder" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Pieter De Rycke" Description="Museum Finder helps you finding nearby museums in Flanders" Publisher="Pieter De Rycke" PublisherID="{726e890b-9626-4a87-9807-8d888d59736f}">
+  <App xmlns="" ProductID="{66B8B7D1-1F09-4EC2-BBED-2D0A242F431D}" Title="Museum Finder" RuntimeType="Silverlight" Version="1.1.0.0" Genre="apps.normal" Author="Pieter De Rycke" Description="Museum Finder helps you finding nearby museums in Flanders" Publisher="Pieter De Rycke" PublisherID="{726e890b-9626-4a87-9807-8d888d59736f}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
