@@ -15,8 +15,8 @@ namespace MuseumFinder.Util
     /// </summary>
     public class FeedbackHelper
     {
-        private const int FirstCount = 5;
-        private const int SecondCount = 10;
+        private const int FirstCount = 3;
+        private const int SecondCount = 6;
 
         private int _launchCount = 0;
         private bool _reviewed = false;

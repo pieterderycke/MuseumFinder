@@ -18,6 +18,7 @@ using Nokia.Phone.HereLaunchers;
 using Windows.Devices.Geolocation;
 using MuseumFinder.Util;
 using MuseumFinder.Domain;
+using System.Threading.Tasks;
 
 namespace MuseumFinder
 {
@@ -37,18 +38,7 @@ namespace MuseumFinder
             viewModel.PropertyChanged += viewModel_PropertyChanged; // Hook in for ApplicationBar changes
 
             // MVVM was to slow with a lot of pushpins :(
-            MapLayer layer = new MapLayer();
-            foreach (AddressViewModel address in viewModel.Addresses)
-            {
-                MapOverlay overlay = new MapOverlay();
-                Pushpin pushpin = new Pushpin() {Content = address.Name};
-                pushpin.Tap += (sender, e) => { address.ShowDetails.Execute(null); };
-                overlay.Content = pushpin;
-                overlay.GeoCoordinate = address.Coordinate;
-
-                layer.Add(overlay);
-            }
-            addressMap.Layers.Add(layer);
+            AddPushpins(viewModel.Addresses);
 
             //MapItemsControl mapItems = MapExtensions.GetChildren(addressMap).FirstOrDefault(c => c is MapItemsControl) as MapItemsControl;
             //mapItems.ItemsSource = viewModel.Addresses;
@@ -63,6 +53,31 @@ namespace MuseumFinder
             base.OnNavigatedTo(e);
 
             ((MainViewModel)DataContext).RefreshSettings();
+        }
+
+        private async void AddPushpins(IEnumerable<AddressViewModel> addresses)
+        {
+            await Task.Run(() =>
+            {
+                MapLayer layer = new MapLayer();
+                foreach (AddressViewModel address in addresses)
+                {
+                    Deployment.Current.Dispatcher.BeginInvoke(() =>
+                        {
+                            MapOverlay overlay = new MapOverlay();
+                            Pushpin pushpin = new Pushpin() { Content = address.Name };
+                            pushpin.Tap += (sender, e) => { address.ShowDetails.Execute(null); };
+                            overlay.Content = pushpin;
+                            overlay.GeoCoordinate = address.Coordinate;
+
+                            layer.Add(overlay);
+                        });
+                }
+                Deployment.Current.Dispatcher.BeginInvoke(() =>
+                    {
+                        addressMap.Layers.Add(layer);
+                    });
+            });
         }
 
         private void CenterBrussels()

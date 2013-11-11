@@ -254,7 +254,7 @@ namespace MuseumFinder.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Get Directions.
+        ///   Looks up a localized string similar to Directions.
         /// </summary>
         public static string GetDirectionsIconButtonText {
             get {

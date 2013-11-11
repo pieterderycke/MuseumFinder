@@ -194,7 +194,7 @@ This app was made possible thanks to the open data sets of the Flemish governmen
     <value>Get Directions</value>
   </data>
   <data name="GetDirectionsIconButtonText" xml:space="preserve">
-    <value>Get Directions</value>
+    <value>Directions</value>
   </data>
   <data name="GetDirectionsMessage" xml:space="preserve">
     <value>Get directions in HERE Maps</value>
