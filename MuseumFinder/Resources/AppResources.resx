@@ -268,4 +268,10 @@ Tell us about your experience or suggest how we can make it even better.</value>
   <data name="RatingYesButtonText" xml:space="preserve">
     <value>rate 5 stars</value>
   </data>
+  <data name="SearchIconButtonText" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchPageTitle" xml:space="preserve">
+    <value>search</value>
+  </data>
 </root>

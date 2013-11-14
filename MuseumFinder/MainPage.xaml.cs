@@ -108,6 +108,11 @@ namespace MuseumFinder
             directionsButton.Click += directionsButton_Click;
             ApplicationBar.Buttons.Add(directionsButton);
 
+            ApplicationBarIconButton searchButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.search.png", UriKind.Relative));
+            searchButton.Text = AppResources.SearchIconButtonText;
+            searchButton.Click += searchButton_Click;
+            ApplicationBar.Buttons.Add(searchButton);
+
             // Create a new menu item with the localized string from AppResources.
             ApplicationBarMenuItem settingsMenuItem = new ApplicationBarMenuItem(AppResources.SettingsMenuItemText);
             settingsMenuItem.Click += settingsMenuItem_Click;
@@ -150,6 +155,11 @@ namespace MuseumFinder
         private void directionsButton_Click(object sender, EventArgs e)
         {
             ((MainViewModel)this.DataContext).Directions.Execute(null);
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/SearchPage.xaml", UriKind.Relative));
         }
 
         private void settingsMenuItem_Click(object sender, EventArgs e)
