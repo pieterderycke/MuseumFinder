@@ -131,6 +131,7 @@
     <Compile Include="SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Util\TextBoxBindingExtras.cs" />
     <Compile Include="Util\EnumerableExtensions.cs" />
     <Compile Include="Util\FeedbackHelper.cs" />
     <Compile Include="Util\FeedbackState.cs" />
@@ -140,6 +141,7 @@
     <Compile Include="Util\StorageHelper.cs" />
     <Compile Include="ViewModels\AddressViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SearchResultViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
   </ItemGroup>

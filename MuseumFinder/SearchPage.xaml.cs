@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using MuseumFinder.ViewModels;
+using MuseumFinder.Domain;
 
 namespace MuseumFinder
 {
@@ -17,7 +18,7 @@ namespace MuseumFinder
         {
             InitializeComponent();
 
-            DataContext = new SearchViewModel();
+            DataContext = new SearchViewModel(new AddressRepository());
         }
     }
 }

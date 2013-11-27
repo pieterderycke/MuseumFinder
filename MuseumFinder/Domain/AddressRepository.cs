@@ -38,6 +38,27 @@ namespace MuseumFinder.Domain
             return nearestAddress;
         }
 
+        public IEnumerable<Address> FindAddresses(string searchText)
+        {
+            searchText = searchText.ToLowerInvariant();
+
+            List<Address> result = new List<Address>();
+
+            foreach(Address address in addresses)
+            {
+                if (address.Name.ToLowerInvariant().Contains(searchText))
+                    result.Add(address);
+                
+                string fullAddressText = (address.Street + " " + address.HouseNumber + " " +
+                    address.PostalCode + " " + address.City).ToLowerInvariant();
+
+                if (fullAddressText.Contains(searchText))
+                    result.Add(address);
+            }
+
+            return result;
+        }
+
         private IList<Address> LoadAddresses()
         {
             XDocument doc = XDocument.Load("Resources/data.xml");
@@ -49,7 +70,7 @@ namespace MuseumFinder.Domain
                     {
                         Name = address.Element("name").Value,
                         Coordinate = new GeoCoordinate(double.Parse(address.Element("latitude").Value, CultureInfo.InvariantCulture), double.Parse(address.Element("longitude").Value, CultureInfo.InvariantCulture)),
-                        Website = (websiteElement != null) ? websiteElement.Value : null,
+                        Website = (websiteElement != null) ? (websiteElement.Value != "") ? websiteElement.Value : null : null,
                         PhoneNumber = (phoneNumberElement != null) ? phoneNumberElement.Value : null,
                         EmailAddress = (emailAddressElement != null) ? emailAddressElement.Value : null,
                     }).ToList();
