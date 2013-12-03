@@ -35,11 +35,7 @@ namespace MuseumFinder.ViewModels
             IEnumerable<Address> addresses = addressRepository.FindAddresses(searchText);
 
             SearchResults.Clear();
-            addresses.ForEach(address => SearchResults.Add(
-                new SearchResultViewModel() { 
-                    Name = address.Name,
-                    Address = (address.Street != null) ? string.Format("{0} {1}, {2} {3}", address.Street, address.HouseNumber, address.PostalCode, address.City) : address.Website,
-            }));
+            addresses.ForEach(address => SearchResults.Add(new SearchResultViewModel(address)));
         }
     }
 }

@@ -5,6 +5,8 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:util="clr-namespace:MuseumFinder.Util"
+    xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP8"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
@@ -45,6 +47,12 @@
                         <StackPanel Orientation="Vertical" Margin="0, 16, 0, 0">
                             <TextBlock Text="{Binding Name, Mode=TwoWay}" Style="{StaticResource PhoneTextNormalStyle}"/>
                             <TextBlock Text="{Binding Address}" Style="{StaticResource PhoneTextSmallStyle}" Visibility="{Binding Address, Converter={StaticResource nullObjectToVisibiltyConverter}}"/>
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Tap">
+                                    <cmd:EventToCommand Command="{Binding ShowDetails, Mode=OneWay}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
                         </StackPanel>
                     </DataTemplate>
                 </phone:LongListSelector.ItemTemplate>
