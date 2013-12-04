@@ -117,6 +117,8 @@ namespace MuseumFinder
                 // An unhandled exception has occurred; break into the debugger
                 Debugger.Break();
             }
+
+            GoogleAnalytics.EasyTracker.GetTracker().SendException("Unhandled Exception: " + e.ExceptionObject.Message, true);
         }
 
         #region Phone application initialization
