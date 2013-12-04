@@ -139,6 +139,7 @@
     <Compile Include="Util\NavigationServiceExtensions.cs" />
     <Compile Include="Util\NullObjectToVisibiltyConverter.cs" />
     <Compile Include="Util\StorageHelper.cs" />
+    <Compile Include="Util\GoogleTrackerExtensions.cs" />
     <Compile Include="ViewModels\AddressViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\SearchResultViewModel.cs" />

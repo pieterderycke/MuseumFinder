@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using MuseumFinder.Util;
 
 namespace MuseumFinder.Screens
 {
@@ -15,6 +16,11 @@ namespace MuseumFinder.Screens
         public PrivacyPolicyPage()
         {
             InitializeComponent();
+        }
+
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            GoogleAnalytics.EasyTracker.GetTracker().SendCurrentView();
         }
     }
 }

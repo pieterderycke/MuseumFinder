@@ -195,5 +195,10 @@ namespace MuseumFinder.Screens
         {
             NavigationService.Navigate(new Uri("/Screens/DetailsPage.xaml", UriKind.Relative), message.Address);
         }
+
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            GoogleAnalytics.EasyTracker.GetTracker().SendCurrentView();
+        }
     }
 }

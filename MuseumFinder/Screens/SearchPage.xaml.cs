@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using MuseumFinder.ViewModels;
 using MuseumFinder.Domain;
+using MuseumFinder.Util;
 
 namespace MuseumFinder.Screens
 {
@@ -19,6 +20,11 @@ namespace MuseumFinder.Screens
             InitializeComponent();
 
             DataContext = new SearchViewModel(new AddressRepository());
+        }
+
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            GoogleAnalytics.EasyTracker.GetTracker().SendCurrentView();
         }
     }
 }

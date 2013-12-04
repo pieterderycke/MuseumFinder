@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using MuseumFinder.ViewModels;
+using MuseumFinder.Util;
 
 namespace MuseumFinder.Screens
 {
@@ -18,6 +19,11 @@ namespace MuseumFinder.Screens
             InitializeComponent();
 
             this.DataContext = new SettingsViewModel();
+        }
+
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            GoogleAnalytics.EasyTracker.GetTracker().SendCurrentView();
         }
     }
 }

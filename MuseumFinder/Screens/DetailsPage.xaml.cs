@@ -25,5 +25,10 @@ namespace MuseumFinder.Screens
             Address address = (Address) NavigationService.GetLastNavigationData();
             DataContext = new AddressViewModel(address);
         }
+
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            GoogleAnalytics.EasyTracker.GetTracker().SendCurrentView();
+        }
     }
 }
