@@ -20,7 +20,7 @@ using MuseumFinder.Util;
 using MuseumFinder.Domain;
 using System.Threading.Tasks;
 
-namespace MuseumFinder
+namespace MuseumFinder.Screens
 {
     public partial class MainPage : PhoneApplicationPage
     {
@@ -159,17 +159,17 @@ namespace MuseumFinder
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/SearchPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Screens/SearchPage.xaml", UriKind.Relative));
         }
 
         private void settingsMenuItem_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/SettingsPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Screens/SettingsPage.xaml", UriKind.Relative));
         }
 
         private void privacyPolicyMenuItem_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/PrivacyPolicyPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Screens/PrivacyPolicyPage.xaml", UriKind.Relative));
         }
 
         private void aboutMenuItem_Click(object sender, EventArgs e)
@@ -193,7 +193,7 @@ namespace MuseumFinder
 
         private void OnShowDetailsMessageReceived(ShowDetailsMessage message)
         {
-            NavigationService.Navigate(new Uri("/DetailsPage.xaml", UriKind.Relative), message.Address);
+            NavigationService.Navigate(new Uri("/Screens/DetailsPage.xaml", UriKind.Relative), message.Address);
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
-namespace MuseumFinder
+namespace MuseumFinder.Screens
 {
     public partial class PrivacyPolicyPage : PhoneApplicationPage
     {

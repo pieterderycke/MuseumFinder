@@ -9,7 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using MuseumFinder.ViewModels;
 
-namespace MuseumFinder
+namespace MuseumFinder.Screens
 {
     public partial class SettingsPage : PhoneApplicationPage
     {

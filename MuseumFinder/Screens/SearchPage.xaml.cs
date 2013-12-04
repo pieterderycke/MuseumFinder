@@ -10,7 +10,7 @@ using Microsoft.Phone.Shell;
 using MuseumFinder.ViewModels;
 using MuseumFinder.Domain;
 
-namespace MuseumFinder
+namespace MuseumFinder.Screens
 {
     public partial class SearchPage : PhoneApplicationPage
     {

@@ -14,7 +14,7 @@ using Nokia.Phone.HereLaunchers;
 using MuseumFinder.Messages;
 using MuseumFinder.Util;
 
-namespace MuseumFinder
+namespace MuseumFinder.Screens
 {
     public partial class DetailsPage : PhoneApplicationPage
     {
