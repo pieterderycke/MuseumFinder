@@ -190,3 +190,4 @@ $RECYCLE.BIN/
 ## MuseumFinder specific
 ################
 MuseumFinder/LicenseKeys.cs
+MuseumFinder/analytics.xml
